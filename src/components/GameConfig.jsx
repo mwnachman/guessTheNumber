@@ -15,7 +15,8 @@ class GameConfig extends React.Component {
   }
 
   reset() {
-    this.props.changeBounds(this.state.lowerBound, this.state.upperBound)
+    const { lowerBound, upperBound } = this.state
+    this.props.changeBounds(lowerBound, upperBound)
   }
 
   changeLowerBound({target: {value}}) {
@@ -27,17 +28,19 @@ class GameConfig extends React.Component {
   }
 
   render() {
-    const { lowerBound, upperBound } = this.props
+    const { lowerBound, upperBound } = this.state
     return (
-      <div>
+      <div className="form-section">
         <h3>Game Config</h3>
         <div>
           Lower bound:
-          <input onChange={this.changeLowerBound} value={this.state.lowerBound}/>
+          <input onChange={this.changeLowerBound}
+                 value={lowerBound}/>
         </div>
         <div>
           Upper bound:
-          <input onChange={this.changeUpperBound} value={this.state.upperBound}/>
+          <input onChange={this.changeUpperBound}
+                 value={upperBound}/>
         </div>
         <button onClick={this.reset}>Reset</button>
       </div>
