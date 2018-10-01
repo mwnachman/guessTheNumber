@@ -8,6 +8,10 @@
     "lint": "eslint --ext .js --ext .jsx src test",
     "test": "babel-tape-runner test/*.'+(js|jsx)' test/**/*.'+(js|jsx)' | tap-diff"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwnachman/guessTheNumber.git"
+  },
   "author": "Meredith Nachman",
   "license": "ISC",
   "devDependencies": {
