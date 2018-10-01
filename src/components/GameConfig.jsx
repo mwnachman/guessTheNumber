@@ -9,21 +9,22 @@ class GameConfig extends React.Component {
       upperBound: this.props.upperBound
     }
     this.reset = this.reset.bind(this)
-    this.changeLowerBound = this.changeLowerBound.bind(this)
-    this.changeUpperBound = this.changeUpperBound.bind(this)
+    this.lowerBoundHandler = this.lowerBoundHandler.bind(this)
+    this.upperBoundHandler = this.upperBoundHandler.bind(this)
     this.state = this._initState
   }
 
   reset() {
+    // Reset the game & winning number within new bounds
     const { lowerBound, upperBound } = this.state
     this.props.changeBounds(lowerBound, upperBound)
   }
 
-  changeLowerBound({target: {value}}) {
+  lowerBoundHandler({target: {value}}) {
     this.setState({lowerBound: value})
   }
 
-  changeUpperBound({target: {value}}) {
+  upperBoundHandler({target: {value}}) {
     this.setState({upperBound: value})
   }
 
@@ -34,12 +35,12 @@ class GameConfig extends React.Component {
         <h3>Game Config</h3>
         <div>
           Lower bound:
-          <input onChange={this.changeLowerBound}
+          <input onChange={this.lowerBoundHandler}
                  value={lowerBound}/>
         </div>
         <div>
           Upper bound:
-          <input onChange={this.changeUpperBound}
+          <input onChange={this.upperBoundHandler}
                  value={upperBound}/>
         </div>
         <button onClick={this.reset}>Reset</button>

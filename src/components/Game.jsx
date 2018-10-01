@@ -56,6 +56,7 @@ class Game extends React.Component {
     } else if (guess < winningNumber && withinBounds) {
       statusMessage = 'Nope. Higher.'
     } else {
+      // Catchall for out of range, non-number entries, etc.
       statusMessage = 'What are you doing???'
     }
     this.setState({statusMessage})
