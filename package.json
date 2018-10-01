@@ -4,8 +4,13 @@
   "description": "Sample React, Webpack, Babel project",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint --ext .js --ext .jsx src test",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "test": "babel-tape-runner test/*.'+(js|jsx)' test/**/*.'+(js|jsx)' | tap-diff"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwnachman/guessTheNumber.git"
   },
   "author": "Meredith Nachman",
   "license": "ISC",
