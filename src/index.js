@@ -7,4 +7,5 @@ ReactDOM.render(
   document.getElementById('app')
 )
 
+// Hot reloading in development
 module.hot.accept()

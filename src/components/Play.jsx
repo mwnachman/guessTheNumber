@@ -8,7 +8,7 @@ class Play extends React.Component {
       guess: ''
     }
     this.resetState = this.resetState.bind(this)
-    this.changeGuess = this.changeGuess.bind(this)
+    this.guessTextHandler = this.guessTextHandler.bind(this)
     this.submitGuess = this.submitGuess.bind(this)
     this.state = this._initState
   }
@@ -17,12 +17,13 @@ class Play extends React.Component {
     this.setState(this._initState)
   }
 
-  changeGuess({target: {value}}) {
+  guessTextHandler({target: {value}}) {
     this.setState({guess: value})
   }
 
   submitGuess() {
     this.props.processGuess(this.state.guess)
+    // Clear the old guess from the input field
     this.resetState()
   }
 
@@ -45,7 +46,7 @@ class Play extends React.Component {
         <div>{statusMessage}</div>
         <div>
           Guess:
-          <input onChange={this.changeGuess}
+          <input onChange={this.guessTextHandler}
                  value={this.state.guess}/>
         </div>
         <button onClick={this.submitGuess}>Make Guess</button>
