@@ -56,7 +56,9 @@ class Play extends React.Component {
 Play.propTypes = {
   lowerBound: PropTypes.string,
   upperBound: PropTypes.string,
-  lastGuess: PropTypes.string
+  lastGuess: PropTypes.string,
+  processGuess: PropTypes.func,
+  statusMessage: PropTypes.string
 }
 
 export default Play

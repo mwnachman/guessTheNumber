@@ -11,8 +11,10 @@ test('GameConfig', ({test}) => {
     const configWrapper = Enzyme.shallow(<GameConfig/>)
     const inputWrapper = configWrapper.find('input')
     const buttonWrapper = configWrapper.find('button')
-    assert.true(inputWrapper.length === 2)
-    assert.true(buttonWrapper.length === 1)
+    assert.true(inputWrapper.length === 2,
+      'two inputs should render')
+    assert.true(buttonWrapper.length === 1,
+      'one button should render')
     assert.end()
   })
 })

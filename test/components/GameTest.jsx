@@ -40,7 +40,7 @@ test('Game', ({test}) => {
     assert.end()
   })
 
-  test('when guess is too low', assert => {
+  test('when guess is wrong', assert => {
     const gameWrapper = Enzyme.shallow(<Game/>)
     const processGuessSpy = sinon.spy(
       gameWrapper.instance(), 'processGuess')
@@ -53,9 +53,12 @@ test('Game', ({test}) => {
     assert.true(originalStatusMessage === '',
       'there is not status message prior to guess')
     
-    playWrapper.setState({guess: '5', winningNumber: '8'})
-    playWrapper.instance().submitGuess()
-    
+    gameWrapper.setState({winningNumber: '8'})
+    playWrapper.setState({guess: '5'})
+    playWrapper.find('button').simulate('click')
+
+    assert.true(processGuessSpy.calledWith('5'),
+      'processGuess called with guess')
     assert.true(setStatusMessageSpy.calledOnce, 'set status called')
     assert.true(setStatusMessageSpy.calledWith('5'),
       'setStatusMessage is called with the guess')
