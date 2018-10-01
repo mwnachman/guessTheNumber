@@ -64,7 +64,7 @@ class Game extends React.Component {
       statusMessage
     } = this.state
     return (
-      <div>
+      <div className="container">
         <Play processGuess={this.processGuess}
               lowerBound={lowerBound}
               upperBound={upperBound}

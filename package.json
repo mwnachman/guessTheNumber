@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "babel-tape-runner test/*.'+(js|jsx)' test/**/*.'+(js|jsx)' | tap-diff"
   },
   "author": "Meredith Nachman",
   "license": "ISC",
@@ -15,21 +15,27 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
+    "babel-tape-runner": "^3.0.0",
     "css-loader": "^1.0.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^5.6.1",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-react": "^7.11.1",
+    "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.3",
     "prop-types": "^15.6.2",
     "react-hot-loader": "^4.3.11",
+    "sinon": "^6.3.4",
+    "style-loader": "^0.23.0",
+    "tap-diff": "^0.1.1",
+    "tape": "^4.9.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9"
   },
   "dependencies": {
-    "html-webpack-plugin": "^3.2.0",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "style-loader": "^0.23.0"
+    "react-dom": "^16.5.2"
   }
 }
