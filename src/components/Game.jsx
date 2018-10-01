@@ -29,7 +29,7 @@ class Game extends React.Component {
     const lower = parseInt(this.state.lowerBound)
     const upper = parseInt(this.state.upperBound)
     const winningNumber = generateRandomNumber(lower, upper)
-    this.setState({winningNumber})
+    this.setState({winningNumber, lastGuess: '', statusMessage: ''})
   }
 
   changeBounds(lowerBound, upperBound) {
@@ -45,13 +45,18 @@ class Game extends React.Component {
   }
 
   setStatusMessage(lastGuess) {
+    const guess = Number(lastGuess)
+    const { winningNumber, lowerBound, upperBound } = this.state
+    const withinBounds = guess >= lowerBound && guess <= upperBound
     let statusMessage
-    if (lastGuess > this.state.winningNumber) {
+    if (guess === winningNumber) {
+      statusMessage = 'You got it!'
+    } else if (guess > winningNumber && withinBounds) {
       statusMessage = 'Nope. Lower'
-    } else if (lastGuess < this.state.winningNumber) {
+    } else if (guess < winningNumber && withinBounds) {
       statusMessage = 'Nope. Higher.'
     } else {
-      statusMessage = 'You got it!'
+      statusMessage = 'What are you doing???'
     }
     this.setState({statusMessage})
   }

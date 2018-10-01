@@ -12,8 +12,10 @@ test('Play', ({test}) => {
     const playWrapper = Enzyme.shallow(<Play/>)
     const inputWrapper = playWrapper.find('input')
     const buttonWrapper = playWrapper.find('button')
-    assert.true(inputWrapper.length === 1)
-    assert.true(buttonWrapper.length === 1)
+    assert.true(inputWrapper.length === 1,
+      'one input should render')
+    assert.true(buttonWrapper.length === 1,
+      'one button should render')
     assert.end()
   })
 
