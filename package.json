@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "lint": "eslint --ext .js --ext .jsx src test",
     "test": "babel-tape-runner test/*.'+(js|jsx)' test/**/*.'+(js|jsx)' | tap-diff"
   },
   "author": "Meredith Nachman",
@@ -37,5 +38,9 @@
   "dependencies": {
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
-  }
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ]
 }
