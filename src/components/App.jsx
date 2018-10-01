@@ -3,7 +3,7 @@ import Game from './Game.jsx'
 
 const App = () => {
   return (
-    <div className="container">
+    <div>
       <Game/>
     </div>
   )
