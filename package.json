@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "eslint --ext .js --ext .jsx src test",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
-    "test": "babel-tape-runner test/*.'+(js|jsx)' test/**/*.'+(js|jsx)' | tap-diff"
+    "test": "babel-tape-runner test/*.'+(js|jsx)' test/**/*.'+(js|jsx)' | tap-diff",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
