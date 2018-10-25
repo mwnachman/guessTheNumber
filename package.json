@@ -6,7 +6,10 @@
   "scripts": {
     "lint": "eslint --ext .js --ext .jsx src test",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
-    "test": "babel-tape-runner test/*.'+(js|jsx)' test/**/*.'+(js|jsx)' | tap-diff"
+    "test": "babel-tape-runner test/*.'+(js|jsx)' test/**/*.'+(js|jsx)' | tap-diff",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -27,10 +30,12 @@
     "eslint": "^5.6.1",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-react": "^7.11.1",
+    "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.3",
     "prop-types": "^15.6.2",
     "react-hot-loader": "^4.3.11",
+    "react-scripts": "^2.0.5",
     "sinon": "^6.3.4",
     "style-loader": "^0.23.0",
     "tap-diff": "^0.1.1",
@@ -40,6 +45,7 @@
     "webpack-dev-server": "^3.1.9"
   },
   "dependencies": {
+    "path": "^0.12.7",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   }
